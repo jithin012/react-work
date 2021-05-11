@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './_base.scss'; // All media query ref declare first
 import './index.scss'; // base declaration
 import './_utils.scss'; // all reusing classes and animations
 import './_button.scss'; //

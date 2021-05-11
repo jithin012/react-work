@@ -1,0 +1,67 @@
+/**
+    max width - Desktop first
+    min-width - mobile first
+
+    Media query should write at the end. Why?
+    Order of code is matters, so don't add any importance or specifity to selector
+
+    Mobile First - 
+    Prons:
+        1. Optimised for mobile expe.
+        2. Reduce website and apps to the absolute esstntials
+        3. Results in smaller, faster and more effciend producrs
+        4. prioritze content over aesthetic design, which may be desirable
+    
+    Cons:
+        1. The desktop vertion might feel overly empty and simplistic
+        2. More difficult and counterintuitive to develop
+        3. Less creative freedom, making it more difficult to create distinctive products
+        4. Clients are used to see a desktop version of the site as a prototype
+        5. Do your user even use the mobile internet? What's the prupose of your website
+
+    BreakPoint Ref.
+    0 - 600px   : Phone Only
+    601 - 900px : tabet portait
+    901 - 1200 : tablet Landscape
+    1201 - 1800 : Desktop
+    1801 <      : Big Desktop
+
+*/
+
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+'em' are best option for media queries. 
+
+1 rem and 1 em is equal to the font-size comming from browser
+
+
+@content - The function content goes @content section. 
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800 ie; min 1800px goes here
+    }
+}
